@@ -1,7 +1,17 @@
 // Инициализация Telegram Web App
-const tg = window.Telegram.WebApp;
-tg.ready();
-tg.expand();
+const tg = window.Telegram?.WebApp || {
+    ready: () => {},
+    expand: () => {},
+    sendData: () => {},
+    close: () => {},
+    openLink: (url) => window.open(url, '_blank'),
+    colorScheme: 'light'
+};
+
+if (window.Telegram?.WebApp) {
+    tg.ready();
+    tg.expand();
+}
 
 // Данные товаров
 const products = {
@@ -304,8 +314,13 @@ function orderProduct(product) {
         text: `Хочу записаться на: ${product.title}`
     };
     
-    tg.sendData(JSON.stringify(data));
-    tg.close();
+    if (window.Telegram?.WebApp) {
+        tg.sendData(JSON.stringify(data));
+        tg.close();
+    } else {
+        // Если не в Telegram, просто показываем сообщение
+        alert(`Заявка: ${product.title}\nЦена: ${product.price}\n\nСвяжитесь: https://t.me/andreyeva_olgaa`);
+    }
 }
 
 // Рендеринг отзывов
@@ -369,12 +384,13 @@ function setupEventListeners() {
     
     // Кнопка связи
     const contactBtn = document.getElementById('contactBtn');
-    contactBtn.addEventListener('click', () => {
-        tg.openLink('https://t.me/andreyeva_olgaa''); // Замените на реальный username
-    });
+    if (contactBtn) {
+        contactBtn.addEventListener('click', () => {
+            tg.openLink('https://t.me/andreyeva_olgaa');
+        });
+    }
 }
 
 // Запуск приложения
 document.addEventListener('DOMContentLoaded', init);
-
 
