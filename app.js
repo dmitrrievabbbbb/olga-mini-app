@@ -370,10 +370,11 @@ function setupEventListeners() {
     // Кнопка связи
     const contactBtn = document.getElementById('contactBtn');
     contactBtn.addEventListener('click', () => {
-        tg.openLink('https://t.me/your_username'); // Замените на реальный username
+        tg.openLink('https://t.me/andreyeva_olgaa''); // Замените на реальный username
     });
 }
 
 // Запуск приложения
 document.addEventListener('DOMContentLoaded', init);
+
 
