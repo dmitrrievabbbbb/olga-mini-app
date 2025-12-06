@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Психолог Ольга Андреева</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="header-title">Ольга Андреева</h1>
+                <p class="header-subtitle">Психолог • Консультант</p>
+            </div>
+        </header>
+
+        <!-- Навигация по разделам -->
+        <nav class="tabs">
+            <button class="tab-btn active" data-category="consultations">Консультации</button>
+            <button class="tab-btn" data-category="courses">Курсы</button>
+            <button class="tab-btn" data-category="meditations">Медитации</button>
+        </nav>
+
+        <!-- Каталог товаров -->
+        <main class="catalog" id="catalog">
+            <!-- Товары будут загружаться динамически -->
+        </main>
+
+        <!-- Блок видео отзывов -->
+        <section class="reviews-section">
+            <h2 class="section-title">Видео отзывы</h2>
+            <div class="reviews-container" id="reviewsContainer">
+                <!-- Видео отзывы будут загружаться динамически -->
+            </div>
+        </section>
+
+        <!-- Кнопка обратной связи -->
+        <div class="contact-section">
+            <button class="contact-btn" id="contactBtn">Связаться со мной</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно для товара -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Содержимое модального окна -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="orderBtn">Записаться</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
