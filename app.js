@@ -343,7 +343,7 @@ function createReviewCard(review) {
         <div class="review-video">
             ${review.videoUrl 
                 ? `<video controls><source src="${review.videoUrl}" type="video/mp4"></video>`
-                : `<div class="review-video-placeholder">🎥 Видео отзыв<br><small>Будет добавлено</small></div>`
+                : `<div class="review-video-placeholder"><span style="font-size: 48px; margin-bottom: 12px; display: block;">🎥</span><div>Видео отзыв</div><small>Будет добавлено</small></div>`
             }
         </div>
         <div class="review-info">
@@ -382,15 +382,7 @@ function setupEventListeners() {
         }
     });
     
-    // Кнопка связи (над табами)
-    const contactBtnTop = document.getElementById('contactBtnTop');
-    if (contactBtnTop) {
-        contactBtnTop.addEventListener('click', () => {
-            tg.openLink('https://t.me/andreyeva_olgaa');
-        });
-    }
-    
-    // Кнопка связи (внизу)
+    // Кнопка связи
     const contactBtn = document.getElementById('contactBtn');
     if (contactBtn) {
         contactBtn.addEventListener('click', () => {
