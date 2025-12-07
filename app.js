@@ -382,7 +382,15 @@ function setupEventListeners() {
         }
     });
     
-    // Кнопка связи
+    // Кнопка связи (над табами)
+    const contactBtnTop = document.getElementById('contactBtnTop');
+    if (contactBtnTop) {
+        contactBtnTop.addEventListener('click', () => {
+            tg.openLink('https://t.me/andreyeva_olgaa');
+        });
+    }
+    
+    // Кнопка связи (внизу)
     const contactBtn = document.getElementById('contactBtn');
     if (contactBtn) {
         contactBtn.addEventListener('click', () => {
